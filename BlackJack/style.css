@@ -1,0 +1,448 @@
+/* General Styles */
+body {
+    background: #006400;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Container Positions */
+.index-page,.game-container, .win-page{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: transform 1s ease;
+}
+
+/* Game and win pages hidden initially */
+.game-container, .win-page{
+    transform: translateY(100vh);
+}
+
+#game-page:checked ~ .index-page {
+    transform: translateY(-100vh);
+}
+
+#game-page:checked ~ .game-container {
+    transform: translateY(0);
+}
+
+#win-page:checked ~ .game-container {
+    transform: translateY(-100vh);
+}
+
+/* Index Page Styles */
+.index-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.index-page h1 {
+    font-size: 3em; /* Reduced font size */
+    margin-bottom: 20px;
+}
+
+.index-page p {
+    font-size: 1.2em; /* Reduced font size */
+    margin-bottom: 30px;
+}
+
+.play-button {
+    cursor: pointer;
+}
+
+.play-button span {
+    display: inline-block;
+    padding: 10px 20px; /* Reduced padding */
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    color: black;
+    border-radius: 5px;
+    font-size: 1.3em; /* Reduced font size */
+    transition: background 0.3s, transform 0.1s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Reduced shadow */
+}
+
+.play-button span:hover {
+    background: linear-gradient(to bottom, #FFA500, #FF8C00);
+}
+
+.play-button span:active {
+    transform: scale(0.95);
+}
+
+/* Smaller Win Game Button */
+.win-game-button {
+    cursor: pointer;
+    padding: 8px 20px; /* Reduced padding */
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    color: black;
+    border-radius: 5px;
+    font-size: 1.1em; /* Reduced font size */
+    transition: background 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 1500px; /* Adjusted position */
+}
+
+.win-game-button:hover {
+    background: linear-gradient(to bottom, #FFA500, #FF8C00);
+}
+
+.win-game-button:active {
+    transform: scale(0.95);
+}
+
+/* Game Container Styles */
+.game-container {
+    text-align: center;
+    z-index: 2;
+}
+
+/* Coin Balance Styles */
+.coin-balance {
+    font-size: 1.2em; /* Reduced font size */
+    margin-bottom: 10px;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chip {
+    width: 40px; /* Reduced size */
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    margin: 3px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    box-shadow: inset 0 0 0 4px white, 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Chip Colors */
+.red-chip { background: red; }
+.blue-chip { background: blue; }
+.green-chip { background: green; }
+.black-chip { background: black; color: gold; }
+
+/* Betting Options */
+.betting-options {
+    margin-bottom: 15px;
+}
+
+.betting-options p {
+    font-size: 1em; /* Reduced font size */
+    margin-bottom: 10px;
+}
+
+.bet-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.bet-buttons label {
+    margin: 0 8px; /* Reduced margin */
+    cursor: pointer;
+}
+
+.bet-buttons .chip {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bet-buttons .chip:hover {
+    transform: scale(1.05); /* Slightly smaller scale effect */
+    box-shadow: inset 0 0 0 4px white, 0 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+.bet-buttons .chip:active {
+    transform: scale(1.02);
+}
+
+/* Table and Cards */
+.table {
+    background: radial-gradient(circle at center, #228B22, #006400);
+    padding: 15px; /* Reduced padding */
+    border-radius: 8px; /* Reduced radius */
+    border: 3px solid #FFD700; /* Reduced border */
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px; /* Reduced width */
+    height: 300px; /* Reduced height */
+}
+
+/* Player Styles */
+.player, .dealer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Player and Dealer Hands */
+.hand {
+    display: flex;
+}
+
+/* Player and Dealer Name Floating Above the Cards */
+.player-name, .dealer-name {
+    font-size: 1.2em; /* Reduced font size */
+    margin-bottom: 8px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 4px 8px; /* Reduced padding */
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Dealer (Top) */
+.dealer {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Player 1 (Left Side) */
+.player-1 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/* Player 2 (Bottom-Left Side) */
+.player-2 {
+    bottom: 10px;
+    left: 20%;
+}
+
+/* Player 3 (Right Side) */
+.player-3 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+/* Player 4 (Bottom-Right Side) */
+.player-4 {
+    bottom: 10px;
+    right: 20%;
+}
+
+/* Cards Styles */
+.card {
+    width: 60px; /* Reduced width */
+    height: 90px; /* Reduced height */
+    margin: 0 8px; /* Reduced margin */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Reduced shadow size */
+}
+
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+}
+
+.card::before {
+    background: url('card-back.png') no-repeat center/cover;
+}
+
+.card::after {
+    background: url('card-front.png') no-repeat center/cover;
+    transform: rotateY(180deg);
+}
+
+/* Extra Card */
+.extra-card {
+    display: none;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+/* Show and flip the extra card when the 'Hit' button is checked */
+#hit-card-1:checked ~ .game-container .player-1 .extra-card {
+    display: inline-block;
+    animation: dealCard 0.5s forwards;
+    transform: rotateY(180deg);
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: rotateY(180deg) scale(1.05); /* Reduced scale effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Controls */
+.controls {
+    margin-top: 20px; /* Reduced margin */
+    display: flex;
+    justify-content: center;
+}
+
+.controls label {
+    margin: 0 8px; /* Reduced margin */
+    cursor: pointer;
+}
+
+.controls span {
+    display: inline-block;
+    padding: 8px 14px; /* Reduced padding */
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    color: black;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+/* Back Button */
+.back-button {
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.back-button span {
+    display: inline-block;
+    padding: 10px 20px; /* Reduced padding */
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    color: black;
+    border-radius: 5px;
+    font-size: 1.2em; /* Reduced font size */
+    transition: background 0.3s, transform 0.1s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.back-button span:hover {
+    background: linear-gradient(to bottom, #FFA500, #FF8C00);
+}
+
+.back-button span:active {
+    transform: scale(0.95);
+}
+
+
+/* Animation for dealing card */
+@keyframes dealCard {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Winning Page Styles */
+.win-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Winning Message */
+.win-message {
+    font-size: 2.5em; /* Reduced font size */
+    color: #FFD700;
+    text-shadow: 2px 2px #000;
+    margin-bottom: 30px;
+}
+
+/* Confetti Animation */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px; /* Reduced size */
+    height: 8px;
+    background: rgba(255, 215, 0, 0.8); /* Yellow confetti */
+    top: -10px;
+    animation: fall 3s linear infinite;
+    opacity: 0.8;
+}
+
+/* Color variations for confetti */
+.confetti:nth-child(odd) { background: rgba(255, 69, 0, 0.8); }  /* Orange */
+.confetti:nth-child(3n) { background: rgba(0, 191, 255, 0.8); }  /* Blue */
+.confetti:nth-child(4n) { background: rgba(50, 205, 50, 0.8); }  /* Green */
+.confetti:nth-child(5n) { background: rgba(238, 130, 238, 0.8); } /* Violet */
+
+/* Falling animation */
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Random positions for confetti */
+.confetti:nth-child(1) { left: 10%; animation-duration: 3s; }
+.confetti:nth-child(2) { left: 25%; animation-duration: 4s; }
+.confetti:nth-child(3) { left: 40%; animation-duration: 2.5s; }
+.confetti:nth-child(4) { left: 55%; animation-duration: 3.5s; }
+.confetti:nth-child(5) { left: 70%; animation-duration: 4s; }
+.confetti:nth-child(6) { left: 85%; animation-duration: 3s; }
+.confetti:nth-child(7) { left: 15%; animation-duration: 4.5s; }
+.confetti:nth-child(8) { left: 30%; animation-duration: 3s; }
+.confetti:nth-child(9) { left: 60%; animation-duration: 2.5s; }
+.confetti:nth-child(10) { left: 90%; animation-duration: 3.5s; }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        width: 50px; /* Further reduced size */
+        height: 75px;
+    }
+
+    .controls span,
+    .back-button span,
+    .bet-buttons .chip {
+        padding: 6px 12px; /* Further reduced padding */
+        font-size: 12px; /* Further reduced font size */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .chip {
+        width: 35px; /* Further reduced size */
+        height: 35px;
+        font-size: 0.8em;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fifteen Puzzle - Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <!-- Heading -->
+    <h1>Fifteen Puzzle</h1>
+
+    <!-- Description Above Grid -->
+    <p class="game-description">
+      The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares into the empty space. How quickly can you solve it?
+    </p>
+
+    <!-- Greeting -->
+    <h2 id="player-greeting"></h2>
+
+    <!-- Puzzle Area -->
+    <div id="puzzlearea">
+      
+    </div>
+
+     <!-- Timer and Move Counter -->
+    <div id="stats-container">
+        <h3>Game Stats</h3>
+        <p><strong>Time:</strong> <span id="timer">00:00</span></p>
+        <p><strong>Moves:</strong> <span id="moves">0</span></p>
+    </div>
+
+    <!-- Music Controls -->
+    <div id="music-controls">
+      <button id="mute-button">Mute Music</button>
+    </div>
+
+    <!-- Shuffle and Back to Home Buttons -->
+    <div id="button-container">
+      <button id="shufflebutton">Shuffle</button>
+      <button id="home-button" onclick="goHome()">Home</button>
+    </div>
+
+    <!-- Description Below Grid -->
+    <p class="game-description">
+      American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed, Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster in Canastota, New York.
+    </p>
+
+    <!-- Validator Images -->
+    <div class="validator-images">
+      <a href="http://validator.w3.org/check/referer">
+        <img src="html-validator.jpg" alt="Valid HTML">
+      </a>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+        <img src="css-validator.jpg" alt="Valid CSS">
+      </a>
+      <a href="https://webster.cs.washington.edu/jslint/?referer">
+        <img src="js-validator.jpg" alt="Valid JS">
+      </a>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="background-music" autoplay loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="congrats-popup" class="hidden">
+    <div class="popup-content">
+      <h2>🎉 Congratulations! 🎉</h2>
+      <p>You have successfully completed the puzzle!</p>
+      <textarea id="feedback-input" placeholder="Share your feedback..."></textarea>
+      <div class="popup-buttons">
+        <button id="submit-feedback" onclick="saveFeedback()">Submit Feedback</button>
+        <button id="skip-button" onclick="goHome()">Skip</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="feedback-list" class="feedback-list"></div>
+  
+  <script src="game.js"></script>
+</body>
+</html>

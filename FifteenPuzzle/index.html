@@ -1,0 +1,77 @@
+<!--
+Extra Features
+
+1.End-of-Game Notification
+2.Animations and Transitions
+3.Game Timer and Statistics
+4.Multiple Backgrounds
+5.Different puzzle sizes
+6.Feedback Form
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fifteen Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="welcome-section">
+      <h1>Welcome to the Fifteen Puzzle!</h1>
+      <p>Choose a background, enter your name, and get ready to play!</p>
+    </div>
+
+    <div class="background-selection">
+      <h3>Select a Background</h3>
+      <div id="thumbnail-section">
+        <div class="thumbnail" onclick="selectBackground(this)" data-image="bg1.jpg">
+          <img src="bg1.jpg" alt="Background 1">
+        </div>
+        <div class="thumbnail" onclick="selectBackground(this)" data-image="bg2.jpg">
+          <img src="bg2.jpg" alt="Background 2">
+        </div>
+        <div class="thumbnail" onclick="selectBackground(this)" data-image="bg3.jpg">
+          <img src="bg3.jpg" alt="Background 3">
+        </div>
+        <div class="thumbnail" onclick="selectBackground(this)" data-image="bg4.jpg">
+          <img src="bg4.jpg" alt="Background 4">
+        </div>
+      </div>
+    </div>
+
+    <div class="background-selection">
+      <h3>Select a size</h3>
+      <div id="thumbnail-section">
+        <div class="thumbnail-size" onclick="selectSize(this,3)">
+          <span>3X3</span>
+        </div>
+        <div class="thumbnail-size" onclick="selectSize(this,4)">
+          <span>4X4</span>
+        </div>
+        <div class="thumbnail-size" onclick="selectSize(this,5)">
+          <span>5X5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-input">
+      <h3>Enter Your Name</h3>
+      <input type="text" id="player-name" placeholder="Your Name">
+    </div>
+
+    <button id="play-now" onclick="startGame()">Play Now</button>
+
+    <div id="feedback-container">
+      <div id="feedback-header">Top Feedback</div>
+      <div id="feedback-list">
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
